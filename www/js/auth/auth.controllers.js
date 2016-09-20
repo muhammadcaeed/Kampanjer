@@ -16,7 +16,7 @@ angular.module('your_app_name.auth.controllers', [])
 
 		$timeout(function(){
 			// Simulate login OK
-			// $state.go('main.app.feed.fashion');
+			 $state.go('intro.walkthrough-learn-new');
       // $ionicLoading.hide();
 
 			// Simulate login ERROR

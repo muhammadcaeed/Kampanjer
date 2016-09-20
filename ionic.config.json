@@ -1,0 +1,14 @@
+{
+  "name": "bazaar",
+  "app_id": "90dd4672",
+  "gulpStartupTasks": [
+    "default",
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "documentRoot": "www"
+}

@@ -8,7 +8,8 @@
       "square_image": "./img/sample-images/fashion/Fashion7-1.1.png",
       "showcase_images": [
         "./img/sample-images/fashion_content/Fashion7_2-3.4.png",
-        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png",
+        "./img/kfc.png"
       ],
       "name": "Badass Leather Jacket",
       "style": "Tight",

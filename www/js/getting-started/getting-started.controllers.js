@@ -1,6 +1,7 @@
 angular.module('your_app_name.getting-started.controllers', [])
 
 .controller('GettingStartedCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+
 	$scope.skipIntro = function(){
 		$state.go('main.app.feed.fashion');
 	}

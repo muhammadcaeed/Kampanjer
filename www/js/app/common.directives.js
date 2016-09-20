@@ -1,6 +1,28 @@
 angular.module('your_app_name.common.directives', [])
 
-.directive('multiBg', function(_){
+//CUSTOM DIRECTIVES
+.directive('customizedCheckbox', function($ionicConfig) {
+	return {
+		restrict: 'E',
+		scope: {
+			title: '@',
+			model: '=ngModel'
+		},
+		replace: true,
+		transclude: true,
+		templateUrl: 'views/custom/custom-checkbox.template.html',
+		compile: function(element, attr) {
+			var checkboxWrapper = element[0].querySelector('.checkbox');
+			checkboxWrapper.classList.add('checkbox-' + $ionicConfig.form.checkbox());
+		}
+	};
+})
+
+
+
+	//CUSTOM DIRECTIVES END
+
+	.directive('multiBg', function(_){
 	return {
 		scope: {
 			multiBg: '=',
