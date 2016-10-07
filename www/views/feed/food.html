@@ -7,7 +7,7 @@
         <div class="row row-center top-row">
           <div class="col col-66 logo-col">
             <!--<img class="deal-logo" ng-src="{{product.picture}}"/>-->
-            <p style="text-transform: uppercase; font-weight: bold;">{{product.name}}</p>
+            <p style="text-transform: uppercase; font-weight: bold;" ui-sref="main.app.feed.food.content({productId: product.id})">{{product.name}}</p>
           </div>
           <div class="col shop-col">
             <button class="button shop-button" style="background-color: #ffab6b;">
