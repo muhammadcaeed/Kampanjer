@@ -4,57 +4,191 @@ angular.module('your_app_name.common.controllers', [])
 
 })
 
-.controller('CustomLoginCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $timeout, $location, AuthenticationService) {
+
+.controller('CustomMapCtrl', function(NgMap, $scope, GeoCoder) {
+
+    /*$scope.geoFunc = function() {
+     GeoCoder.geocode({address: 'KFC, Dolmen Mall, Tariq Road'}).then(function(result) {
+     console.log('all good');
+     });
+     }*/
+    $scope.lat = "";
+    $scope.lng = "";
+    $scope.geoFunc = function() {
+        GeoCoder.geocode({address: '249 Staff Lines, Ghazanfar Ali Rd, Saddar, Near Avari Towers, Karachi'}).then(function(result) {
+            //... do something with result
+            lat = result[0].geometry.location.lat();
+            lng = result[0].geometry.location.lng();
+            console.log('latitude : ' + lat);
+            console.log('longtitude : ' + lng);
+        });
+    }
+
+    NgMap.getMap().then(function(map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+        console.log('shapes', map.shapes);
+    });
+})
+
+
+.controller('CustomLoginCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $timeout, $location, AuthenticationService, $cordovaOauth) {
+
+var vm = this;
+
+vm.login = login;
+
+(function initController() {
+    // reset login status
+    AuthenticationService.ClearCredentials();
+})();
+
+function login() {
+    vm.dataLoading = true;
+
+    console.log(vm.user.username + '. . . . . ' + vm.user.password);
+    console.log('asd');
+    AuthenticationService.Login(vm.user.username, vm.user.password, function (response) {
+        if (response.success) {
+            AuthenticationService.SetCredentials(vm.username, vm.password);
+            console.log(vm.user.username + '. . . . . ' + vm.user.password);
+            $location.path('custom/filters');
+        } else if (response.success == false) {
+
+            console.log(response.message);
+            console.log('asd');
+            $ionicPopup.alert({
+                title: 'ERROR',
+                template: '<h5>Incorrect Credentials</h5>'
+            });
+            vm.dataLoading = false;
+        }
+    });
+};
+
+
+openFB.init({appId: '1429567050392769'});
+
+$scope.FbLogin = function() {
+    console.log('fired');
+    openFB.login(
+        function(response) {
+            if(response.status === 'connected') {
+                console.log('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
+                $location.path('custom/filters');
+            } else {
+                console.log('Facebook login failed: ' + response.error);
+            }
+        }, {scope: 'email,read_stream,publish_actions'});
+}
+
+/*$scope.FbLogin = function(){
+    console.log("doing FACEBOOK log in");
+
+    $cordovaOauth.facebook("1161135787308840", ["muhammadcaeed@gmail.com"]).then(function(result) {
+     alert("Auth Success..!!"+result);
+     }, function(error) {
+     alert("Auth Failed..!!"+error);
+     });
+
+    /!*
+     $ionicLoading.show({
+     template: 'Loging in...'
+     });
+
+     $timeout(function(){
+     // Simulate login OK
+     $state.go('main.app.feed.fashion');
+     $ionicLoading.hide();
+
+     // Simulate login ERROR
+     // $scope.error = "This is an error message";
+     // $ionicLoading.hide();
+     }, 800);*!/
+}*/
+
+/*$scope.user = {};
+
+$scope.user.email = "";
+$scope.user.password = "";
+// $scope.user.password = "12345";
+
+$scope.doLogIn = function(){
+    console.log("doing log in");
+
+    $ionicLoading.show({
+        template: 'Loging in...'
+    });
+
+    $timeout(function(){
+        // Simulate login OK
+        $state.go('custom.filters');
+        // $ionicLoading.hide();
+
+        // Simulate login ERROR
+        $scope.error = "This is an error message";
+        $ionicLoading.hide();
+    }, 800);
+};
+
+$scope.doFacebookLogIn = function(){
+    console.log("doing FACEBOOK log in");
+
+    $ionicLoading.show({
+        template: 'Loging in...'
+    });
+
+    $timeout(function(){
+        // Simulate login OK
+        $state.go('custom.filters');
+        $ionicLoading.hide();
+
+        // Simulate login ERROR
+        // $scope.error = "This is an error message";
+        // $ionicLoading.hide();
+    }, 800);
+};*/
+})
+
+
+.controller('CustomSignupCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicModal, UserService, $location, $rootScope) {
 
     var vm = this;
 
-    vm.login = login;
+    vm.register = register;
 
-    (function initController() {
-        // reset login status
-        AuthenticationService.ClearCredentials();
-    })();
-
-    function login() {
+    function register() {
         vm.dataLoading = true;
-
-        console.log(vm.user.username + '. . . . . ' + vm.user.password);
-        console.log('asd');
-        AuthenticationService.Login(vm.user.username, vm.user.password, function (response) {
-            if (response.success) {
-                AuthenticationService.SetCredentials(vm.username, vm.password);
-                console.log(vm.user.username + '. . . . . ' + vm.user.password);
-                $location.path('custom/filters');
-            } else if (response.success == false) {
-
-                console.log(response.message);
-                console.log('asd');
-                $ionicPopup.alert({
-                    title: 'ERROR',
-                    template: '<h5>Incorrect Credentials</h5>'
-                });
-                vm.dataLoading = false;
-            }
-        });
-    };
+        UserService.Create(vm.user)
+            .then(function (response) {
+                if (response.success) {
+                    console.log('Registration successful', true);
+                    console.log(vm.user);
+                    $location.path('/custom/login');
+                } else {
+                    console.log(response.message);
+                    vm.dataLoading = false;
+                }
+            });
+    }
 
 
-    /*$scope.user = {};
+  /*  $scope.user = {};
 
+    $scope.user.name = "Marian Hill";
     $scope.user.email = "";
     $scope.user.password = "";
-    // $scope.user.password = "12345";
 
-    $scope.doLogIn = function(){
-        console.log("doing log in");
+    $scope.doSignUp = function(){
+        console.log("doing sign up");
 
         $ionicLoading.show({
-            template: 'Loging in...'
+            template: 'Creating account...'
         });
 
         $timeout(function(){
             // Simulate login OK
-            $state.go('custom.filters');
+            // $state.go('main.app.feed.fashion');
             // $ionicLoading.hide();
 
             // Simulate login ERROR
@@ -63,11 +197,11 @@ angular.module('your_app_name.common.controllers', [])
         }, 800);
     };
 
-    $scope.doFacebookLogIn = function(){
-        console.log("doing FACEBOOK log in");
+    $scope.doFacebookSignUp = function(){
+        console.log("doing FACEBOOK sign up");
 
         $ionicLoading.show({
-            template: 'Loging in...'
+            template: 'Creating account...'
         });
 
         $timeout(function(){
@@ -79,120 +213,54 @@ angular.module('your_app_name.common.controllers', [])
             // $scope.error = "This is an error message";
             // $ionicLoading.hide();
         }, 800);
+    };
+
+    $ionicModal.fromTemplateUrl('views/legal/privacy-policy.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.privacy_policy_modal = modal;
+    });
+
+    $ionicModal.fromTemplateUrl('views/legal/terms-of-service.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.terms_of_service_modal = modal;
+    });
+
+    $scope.showTerms = function(){
+        $scope.terms_of_service_modal.show();
+    };
+
+    $scope.showPrivacyPolicy = function(){
+        $scope.privacy_policy_modal.show();
     };*/
 })
 
+.controller('CustomForgotPasswordCtrl', function($scope, $state, $ionicLoading, $timeout) {
+    $scope.user = {};
 
-    .controller('CustomSignupCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicModal, UserService, $location, $rootScope) {
+    $scope.user.email = "";
 
-        var vm = this;
+    $scope.recoverPassword = function(){
+        console.log("recover password");
 
-        vm.register = register;
-
-        function register() {
-            vm.dataLoading = true;
-            UserService.Create(vm.user)
-                .then(function (response) {
-                    if (response.success) {
-                        console.log('Registration successful', true);
-                        console.log(vm.user);
-                        $location.path('/custom/login');
-                    } else {
-                        console.log(response.message);
-                        vm.dataLoading = false;
-                    }
-                });
-        }
-
-
-      /*  $scope.user = {};
-
-        $scope.user.name = "Marian Hill";
-        $scope.user.email = "";
-        $scope.user.password = "";
-
-        $scope.doSignUp = function(){
-            console.log("doing sign up");
-
-            $ionicLoading.show({
-                template: 'Creating account...'
-            });
-
-            $timeout(function(){
-                // Simulate login OK
-                // $state.go('main.app.feed.fashion');
-                // $ionicLoading.hide();
-
-                // Simulate login ERROR
-                $scope.error = "This is an error message";
-                $ionicLoading.hide();
-            }, 800);
-        };
-
-        $scope.doFacebookSignUp = function(){
-            console.log("doing FACEBOOK sign up");
-
-            $ionicLoading.show({
-                template: 'Creating account...'
-            });
-
-            $timeout(function(){
-                // Simulate login OK
-                $state.go('custom.filters');
-                $ionicLoading.hide();
-
-                // Simulate login ERROR
-                // $scope.error = "This is an error message";
-                // $ionicLoading.hide();
-            }, 800);
-        };
-
-        $ionicModal.fromTemplateUrl('views/legal/privacy-policy.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.privacy_policy_modal = modal;
+        $ionicLoading.show({
+            template: 'Recovering password...'
         });
 
-        $ionicModal.fromTemplateUrl('views/legal/terms-of-service.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.terms_of_service_modal = modal;
-        });
+        $timeout(function(){
+            // Simulate login OK
+            $state.go('custom.filters');
+            $ionicLoading.hide();
 
-        $scope.showTerms = function(){
-            $scope.terms_of_service_modal.show();
-        };
-
-        $scope.showPrivacyPolicy = function(){
-            $scope.privacy_policy_modal.show();
-        };*/
-    })
-
-    .controller('CustomForgotPasswordCtrl', function($scope, $state, $ionicLoading, $timeout) {
-        $scope.user = {};
-
-        $scope.user.email = "";
-
-        $scope.recoverPassword = function(){
-            console.log("recover password");
-
-            $ionicLoading.show({
-                template: 'Recovering password...'
-            });
-
-            $timeout(function(){
-                // Simulate login OK
-                $state.go('custom.filters');
-                $ionicLoading.hide();
-
-                // Simulate login ERROR
-                // $scope.error = "This is an error message";
-                // $ionicLoading.hide();
-            }, 800);
-        };
-    })
+            // Simulate login ERROR
+            // $scope.error = "This is an error message";
+            // $ionicLoading.hide();
+        }, 800);
+    };
+})
 
 
 

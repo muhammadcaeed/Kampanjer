@@ -25,23 +25,7 @@ angular.module('your_app_name.auth.controllers', [])
 		}, 800);
 	};
 
-	$scope.doFacebookLogIn = function(){
-		console.log("doing FACEBOOK log in");
 
-		$ionicLoading.show({
-      template: 'Loging in...'
-    });
-
-		$timeout(function(){
-			// Simulate login OK
-			$state.go('main.app.feed.fashion');
-      $ionicLoading.hide();
-
-			// Simulate login ERROR
-			// $scope.error = "This is an error message";
-			// $ionicLoading.hide();
-		}, 800);
-	};
 })
 
 .controller('SignupCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicModal) {

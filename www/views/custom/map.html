@@ -1,0 +1,19 @@
+<ion-view title="Map">
+
+    <ion-header-bar class="bar bar-balanced">
+        Maps
+    </ion-header-bar>
+    <ion-content>
+
+    <map center="249 Staff Lines, Ghazanfar Ali Rd, Saddar, Near Avari Towers, Karachi">
+        <marker position="[lat, lng]" geo-callback="geoFunc()"  on-click="myfunc()"></marker>
+    </map>
+        <p>lat : {{lat}}</p>
+   <!--     <map center="[40.74, -74.18]">
+            <marker position="[40.74, -74.18]" on-click="myfunc()"></marker>
+        </map>
+        <map center="the cn tower">
+            <marker position="the cn tower" on-click="myfunc()"></marker>
+        </map>-->
+    </ion-content>
+</ion-view>

@@ -60,9 +60,11 @@ angular.module('your_app_name', [
 
   'underscore',
   'angularMoment',
-  //'ngMap',
+  'ngMap',
   'ngRangeSlider',
-  'ngCookies'
+  'ngCookies',
+    'ngCordova',
+    'ngCordovaOauth'
 ])
 .run(function($ionicPlatform, amMoment, $rootScope) {
   $rootScope.previousView = [];
@@ -633,6 +635,15 @@ angular.module('your_app_name', [
                   'custom-view@custom': {
                       templateUrl: 'views/custom/learn.html',
                       controller: 'CustomGettingStartedCtrl'
+                  }
+              }
+          })
+          .state('custom.map', {
+              url: '/map',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/map.html',
+                      controller: 'CustomMapCtrl'
                   }
               }
           })
