@@ -5,7 +5,7 @@ angular.module('underscore', [])
 
 angular.module('your_app_name', [
   'ionic',
-  'your_app_name.views',
+  //'your_app_name.views',
   'your_app_name.common.controllers',
   'your_app_name.common.directives',
 
@@ -59,7 +59,7 @@ angular.module('your_app_name', [
 
   'underscore',
   'angularMoment',
-  'ngMap',
+  //'ngMap',
   'ngRangeSlider'
 ])
 
@@ -144,6 +144,7 @@ angular.module('your_app_name', [
           }
         }
       })
+
 
       .state('intro.auth-signup', {
         url: '/auth-signup',
@@ -281,6 +282,23 @@ angular.module('your_app_name', [
                     }
                   })
 
+      //Food Content Reedem Button
+
+      .state('main.app.feed.food.content.reedem', {
+          url: '/reedem',
+          views: {
+              'main-view@main': {
+                  templateUrl: 'views/content/reedem.html',
+                  controller: 'FoodContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(FoodService, $stateParams){
+                  return FoodService.getProduct($stateParams.productId);
+              }
+          }
+      })
+
               .state('main.app.feed.travel', {
                 url: '/travel',
                 views: {
@@ -312,11 +330,11 @@ angular.module('your_app_name', [
                     }
                   })
 
-              .state('main.app.feed.deals', {
-                url: '/deals',
+              .state('main.app.feed.clothes', {
+                url: '/clothes',
                 views: {
                   'category-feed@main.app.feed': {
-                    templateUrl: 'views/feed/deals.html',
+                    templateUrl: 'views/feed/clothes.html',
                     controller: 'DealsCtrl'
                   }
                 },
@@ -328,11 +346,11 @@ angular.module('your_app_name', [
                 }
               })
 
-                  .state('main.app.feed.deals.content', {
+                  .state('main.app.feed.clothes.content', {
                     url: '/content/:productId',
                     views: {
                       'main-view@main': {
-                        templateUrl: 'views/content/deals.html',
+                        templateUrl: 'views/content/clothes.html',
                         controller: 'DealsContentCtrl'
                       }
                     },
@@ -342,6 +360,23 @@ angular.module('your_app_name', [
                       }
                     }
                   })
+
+      // Clothes Content Reedem Button
+
+      .state('main.app.feed.clothes.content.reedem', {
+          url: '/reedem',
+          views: {
+              'main-view@main': {
+                  templateUrl: 'views/content/reedem.html',
+                  controller: 'DealsContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(DealsService, $stateParams){
+                  return DealsService.getProduct($stateParams.productId);
+              }
+          }
+      })
 
               .state('main.app.feed.real-state', {
                 url: '/real-state',
@@ -565,9 +600,250 @@ angular.module('your_app_name', [
                   }
                 }
               })
+
+
+  //CUSTOM WORK
+
+      .state('custom', {
+          url: '/custom',
+          abstract: true,
+          templateUrl: 'views/common/custom.html'
+      })
+
+
+          .state('custom.login', {
+              url: '/login',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/login.html',
+                      controller: 'CustomLoginCtrl'
+                  }
+              }
+          })
+
+          .state('custom.signup', {
+              url: '/signup',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/signup.html',
+                      controller: 'CustomSignupCtrl'
+                  }
+              }
+          })
+
+          .state('custom.forgot-password', {
+              url: '/forgot-password',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/forgot-password.html',
+                      controller: 'CustomForgotPasswordCtrl'
+                  }
+              }
+          })
+
+          .state('custom.filters', {
+              url: '/filters',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/learn.html',
+                      controller: 'CustomGettingStartedCtrl'
+                  }
+              }
+          })
+/*
+      .state('custom.app', {
+          url: '/app',
+          abstract: true,
+          views: {
+              'custom-view@custom': {
+                  templateUrl: 'views/common/custom-app.html',
+                  controller: 'AppCtrl'
+              }
+          },
+          resolve: {
+              logged_user: function(AuthService){
+                  return AuthService.getLoggedUser();
+              }
+          }
+      })
+
+
+      .state('custom.app.feed', {
+          url: '/feed',
+          views: {
+              'app-feed@custom.app': {
+                  templateUrl: 'views/custom/feed.html',
+                  controller: 'FeedCtrl'
+              }
+          }
+      })
+
+      .state('custom.app.feed.fashion', {
+          url: '/fashion',
+          views: {
+              'category-feed@custom.app.feed': {
+                  templateUrl: 'views/custom/fashion.html',
+                  controller: 'FashionCtrl'
+              }
+          },
+          resolve: {
+              products: function(FashionService){
+                  console.log("resolving fashion");
+                  return FashionService.getProducts();
+              }
+          }
+      })
+      // Aca va un resolve con los primeros N posts del feed de esta categoria
+      // DONE
+
+      .state('custom.app.feed.fashion.content', {
+          url: '/content/:productId',
+          views: {
+              'custom-view@custom': {
+                  templateUrl: 'views/custom/fashion.html',
+                  controller: 'CustomFashionContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(FashionService, $stateParams){
+                  return FashionService.getProduct($stateParams.productId);
+              }
+          }
+      })
+      // Aca va un resolve con los datos del producto.
+      // Hay que agregarle a la url el product_id, y la categoria la deberia heredar de la vista padre
+      // DONE
+
+
+
+
+      .state('custom.app.feed.food', {
+          url: '/food',
+          views: {
+              'category-feed@custom.app.feed': {
+                  templateUrl: 'views/custom/food.html',
+                  controller: 'CustomFoodCtrl'
+              }
+          },
+          resolve: {
+              products: function(FoodService){
+                  console.log("resolving food");
+                  return FoodService.getProducts();
+              }
+          }
+      })
+
+      .state('custom.app.feed.food.content', {
+          url: '/content/:productId',
+          views: {
+              'custom-view@custom': {
+                  templateUrl: 'views/custom/food.html',
+                  controller: 'CustomFoodContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(FoodService, $stateParams){
+                  return FoodService.getProduct($stateParams.productId);
+              }
+          }
+      })
+
+      .state('custom.app.feed.travel', {
+          url: '/travel',
+          views: {
+              'category-feed@custom.app.feed': {
+                  templateUrl: 'views/custom/travel.html',
+                  controller: 'CustomTravelCtrl'
+              }
+          },
+          resolve: {
+              products: function(TravelService){
+                  console.log("resolving travel");
+                  return TravelService.getProducts();
+              }
+          }
+      })
+
+      .state('custom.app.feed.travel.content', {
+          url: '/content/:productId',
+          views: {
+              'custom-view@custom': {
+                  templateUrl: 'views/custom/travel.html',
+                  controller: 'CustomTravelContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(TravelService, $stateParams){
+                  return TravelService.getProduct($stateParams.productId);
+              }
+          }
+      })
+
+      .state('custom.app.feed.deals', {
+          url: '/deals',
+          views: {
+              'category-feed@custom.app.feed': {
+                  templateUrl: 'views/custom/clothes.html',
+                  controller: 'CustomDealsCtrl'
+              }
+          },
+          resolve: {
+              products: function(DealsService){
+                  console.log("resolving deals");
+                  return DealsService.getProducts();
+              }
+          }
+      })
+
+      .state('custom.app.feed.deals.content', {
+          url: '/content/:productId',
+          views: {
+              'custom-view@custom': {
+                  templateUrl: 'views/custom/clothes.html',
+                  controller: 'CustomDealsContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(DealsService, $stateParams){
+                  return DealsService.getProduct($stateParams.productId);
+              }
+          }
+      })
+
+      .state('custom.app.feed.real-state', {
+          url: '/real-state',
+          views: {
+              'category-feed@custom.app.feed': {
+                  templateUrl: 'views/custom/real-state.html',
+                  controller: 'CustomRealStateCtrl'
+              }
+          },
+          resolve: {
+              products: function(RealStateService){
+                  console.log("resolving real state");
+                  return RealStateService.getProducts();
+              }
+          }
+      })
+
+      .state('custom.app.feed.real-state.content', {
+          url: '/content/:productId',
+          views: {
+              'custom-view@custom': {
+                  templateUrl: 'views/custom/real-state.html',
+                  controller: 'CustomRealStateContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(RealStateService, $stateParams){
+                  return RealStateService.getProduct($stateParams.productId);
+              }
+          }
+      })
+  */
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/intro/walkthrough-welcome');
+  $urlRouterProvider.otherwise('/custom/login');
   // $urlRouterProvider.otherwise('/main/app/feed/fashion');
 });

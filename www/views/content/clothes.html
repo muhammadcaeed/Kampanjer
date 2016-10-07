@@ -1,0 +1,62 @@
+<ion-view class="fashion-content-view" cache-view="false">
+  <ion-header-bar class="fashion-content-header">
+    <div class="buttons">
+      <button class="button button-clear back-button" ng-click="goBack()">Back</button>
+    </div>
+    <h1 class="title">{{product.name}}</h1>
+  </ion-header-bar>
+  <ion-content>
+
+    <ion-slide-box class="product-images-slider">
+      <ion-slide ng-repeat="product_image in product.showcase_images track by $index">
+        <div class="image-container" multi-bg="[product_image]"></div>
+      </ion-slide>
+    </ion-slide-box>
+
+    <!--
+    <div class="row brief-info-row">
+      <div class="col">
+        <h3 class="product-name">{{product.name}}</h3>
+        <h4 class="product-price">${{product.price_sale}}</h4>
+      </div>
+    <div>
+-->
+    <div class="list card">
+      <ion-item class="item-thumbnail-left">
+        <img src="{{product.logo}}" style="border-radius: 100%;">
+        <h2>{{product.offer}}</h2>
+<!--
+        <h4 class="product-price" style="font-size: 16px;">${{product.price_sale}}</h4>
+-->
+      </ion-item>
+    </div>
+    </div>
+    </div>
+
+    <div class="row description-row">
+      <div class="col">
+        <h4 class="description-title">Details</h4>
+        <p class="description-paragraph">{{product.details}}</p>
+      </div>
+    </div>
+
+    <div class="row brief-info-row">
+      <div class="col">
+        <h5 class="product-store"><strong>Valid For: </strong>{{product.validFor}}</h5>
+        <h5 class="product-store"><strong>Valid Only: </strong>{{product.validOnly}}</h5>
+        <h5 class="product-store"><strong>Valid In: </strong>{{product.validIn}}</h5>
+        <h5 class="product-store"><strong>Valid At: </strong>{{product.validAt}}</h5>
+      </div>
+    </div>
+
+
+    <h2 class="redemption-title">REDEMPTION code is only valid for 10 minutes from issuance. Please arrive at establishment before redemption. Terms & Condtions Apply.</h2>
+
+    <div class="row purchase-row">
+      <div class="col">
+        <button class="button button-block add-to-cart-button" ng-click="reedemNow()">REEDEM NOW</button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

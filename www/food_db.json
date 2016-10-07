@@ -2,87 +2,89 @@
   "products": [
     {
       "id": 1,
-      "price_range": 3,
-      "image": "./img/sample-images/food/foodlogo1.png",
-      "name": "NomNom",
-      "rating": 4.3,
-      "tags": [
-        "vegetarian",
-        "vegan",
-        "desserts"
+      "code": "20LIGHT25",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/food/food-1.jpeg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
       ],
-      "pictures": [
-        "./img/sample-images/food/Cat1Foto1-1.1.png",
-        "./img/sample-images/food/Cat1Foto2-1.1.png",
-        "./img/sample-images/food/Cat1Foto3-1.1.png",
-        "./img/sample-images/food/Cat1Foto4-1.1.png",
-        "./img/sample-images/food/Cat1Foto5-1.1.png",
-        "./img/sample-images/food/Cat1Foto1-1.1.png",
-        "./img/sample-images/food/Cat1Foto2-1.1.png",
-        "./img/sample-images/food/Cat1Foto3-1.1.png"
-      ],
-      "address": "6782 Bobwhite Crossing"
-    }, {
+      "name": "KFC",
+      "offer": "Box Master",
+      "price_sale": "Rs 350",
+      "validFor": "Dine-in/Takeaway",
+      "validOnly": "All Days",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "Box Master is a unique combination of Zinger fillet, Hash Brown, lettuce, Diced Tomatoes, Signature spicy sauce and all of this wrapped in a fresh Tortilla.",
+      "logo": "img/sample-images/food/food-1-logo.jpeg"
+     }, {
       "id": 2,
-      "price_range": 1,
-      "image": "./img/sample-images/food/foodlogo2.png",
-      "name": "HappyFoods",
-      "rating": 3.7,
-      "tags": [
-        "mexican",
-        "sushi",
-        "vegetarian"
+      "code": "20LIGHT25",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/food/food-2.jpeg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
       ],
-      "pictures": [
-        "./img/sample-images/food/Cat2Foto1-1.1.png",
-        "./img/sample-images/food/Cat2Foto2-1.1.png",
-        "./img/sample-images/food/Cat2Foto3-1.1.png",
-        "./img/sample-images/food/Cat2Foto4-1.1.png",
-        "./img/sample-images/food/Cat2Foto5-1.1.png",
-        "./img/sample-images/food/Cat2Foto1-1.1.png",
-        "./img/sample-images/food/Cat2Foto2-1.1.png"
-      ],
-      "address": "1 Buhler Parkway"
+      "name": "KFC",
+      "offer": "Family Festival",
+      "price_sale": "Rs 1,395",
+      "validFor": "Dine-in/Takeaway",
+      "validOnly": "All Days",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "4 Pcs Chicken + 2 Zinger Burgers + 2 Value Burgers + 2 Dinner Rolls + 1.5 Liter Pepsi. It’s truly a Family Festival with KFC! Enjoy sumptuous burgers, chicken and much more!",
+      "logo": "img/sample-images/food/food-2-logo.jpeg"
     }, {
       "id": 3,
-      "price_range": 2,
-      "image": "./img/sample-images/food/foodlogo3.png",
-      "name": "Tasty",
-      "rating": 2.5,
-      "tags": [
-        "meats",
-        "indian",
-        "currys",
-        "desserts"
+      "code": "MORETVPLZ3",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/food/food-3.jpg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
       ],
-      "pictures": [
-        "./img/sample-images/food/Cat3Foto1-1.1.png",
-        "./img/sample-images/food/Cat3Foto2-1.1.png",
-        "./img/sample-images/food/Cat3Foto3-1.1.png",
-        "./img/sample-images/food/Cat3Foto4-1.1.png"
-      ],
-      "address": "7104 Burning Wood Park"
+      "name": "McDonald's",
+      "offer": "Waffle Cone",
+      "price_sale": "Price/Unavailable",
+      "validFor": "Dine-in/Takeaway",
+      "validOnly": "All Days",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "On purchase of Waffle Cone get a chance to WIN movie tickets via lucky draw",
+      "logo": "img/sample-images/food/food-3-logo.png"
     }, {
       "id": 4,
-      "price_range": 2,
-      "image": "./img/sample-images/food/foodlogo4.png",
-      "name": "Debbie’s",
-      "rating": 5,
-      "tags": [
-        "fish",
-        "gluten free",
-        "pizza"
+      "code": "GETTHATPHONE212",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/food/food-4.jpg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
       ],
-      "pictures": [
-        "./img/sample-images/food/Cat4Foto1-1.1.png",
-        "./img/sample-images/food/Cat4Foto2-1.1.png",
-        "./img/sample-images/food/Cat4Foto3-1.1.png",
-        "./img/sample-images/food/Cat4Foto4-1.1.png",
-        "./img/sample-images/food/Cat4Foto5-1.1.png",
-        "./img/sample-images/food/Cat4Foto4-1.1.png",
-        "./img/sample-images/food/Cat4Foto3-1.1.png"
+      "name": "McDonald's",
+      "offer": "Omlette McMuffin",
+      "price_sale": "Rs 150",
+      "validFor": "Dine-in",
+      "validOnly": "All Days",
+      "validIn": "6:00AM - 11:00AM",
+      "validAt": "All Branches",
+      "details": "The all new Omelette Mcmuffin. The good in morning.",
+      "logo": "img/sample-images/food/food-4-logo.png"
+    },{
+      "id": 5,
+      "code": "ALKARAMSTD2101",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/food/food-5.jpg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
       ],
-      "address": "4362 Wandsworth Street"
+      "name": "McDonald's",
+      "offer": "McDonald's Value Meals",
+      "price_sale": "Rs 295/Each",
+      "validFor": "Dine-in/Takeaway",
+      "validOnly": "All Days",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "Spicy Chicken Burger with Cheese, Mini McRoyale, Value McArabia Chicken. Rs 295 Each with Regular Fries & Drink",
+      "logo": "img/sample-images/food/food-5-logo.png"
     }
   ]
 }

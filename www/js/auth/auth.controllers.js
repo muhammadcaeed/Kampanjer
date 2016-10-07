@@ -16,7 +16,7 @@ angular.module('your_app_name.auth.controllers', [])
 
 		$timeout(function(){
 			// Simulate login OK
-			// $state.go('main.app.feed.fashion');
+			 $state.go('intro.walkthrough-learn-new');
       // $ionicLoading.hide();
 
 			// Simulate login ERROR
@@ -43,6 +43,11 @@ angular.module('your_app_name.auth.controllers', [])
 		}, 800);
 	};
 })
+
+
+	.controller('AfterLoginCtrl', function() {
+
+	})
 
 .controller('SignupCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicModal) {
 	$scope.user = {};
