@@ -11,25 +11,25 @@
         </div>
         <div class="row form-row">
             <div class="col">
-                <a class="button button-block facebook-button" ng-click="doFacebookLogIn()">Log in with Facebook</a>
+                <a class="button button-block facebook-button" ng-click="FbLogin()">Log in with Facebook</a>
                 <span class="form-divider">or</span>
-                <form name="login_form" class="form-container" novalidate>
+                <form name="login_form" class="form-container" ng-submit="vm.login()">
                     <div class="input-list list list-inset">
                         <label class="item item-input">
-                            <input type="text" placeholder="email" name="email" ng-model="user.email" required>
+                            <input type="text" placeholder="username" name="username" ng-model="vm.user.username" required>
                         </label>
                         <label class="item item-input" show-hide-container>
-                            <input type="password" placeholder="password" name="password" ng-model="user.password" required show-hide-input>
+                            <input type="password" placeholder="password" name="password" ng-model="vm.user.password" required show-hide-input>
                         </label>
                     </div>
                     <!--<p ng-show="error" class="message error">{{error}}</p>-->
-                    <button type="submit" class="button button-block auth-action-button" ng-click="doLogIn()" >
+                    <button type="submit" class="button button-block auth-action-button" >
                         Log in
                     </button>
                 </form>
                 <div class="alternative-actions">
-                    <a class="action-link button button-small button-clear" ui-sref="intro.auth-forgot-password()">Forgot Password?</a>
-                    <a class="action-link button button-small button-clear" ui-sref="intro.auth-signup()">Sign up</a>
+                    <a class="action-link button button-small button-clear" ui-sref="custom.forgot-password()">Forgot Password?</a>
+                    <a class="action-link button button-small button-clear" ui-sref="custom.signup()">Sign up</a>
                 </div>
             </div>
         </div>

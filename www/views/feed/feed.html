@@ -12,21 +12,21 @@
   </ion-header-bar>
   <ion-content class="categories-feeds-content" has-bouncing="false" delegate-handle="feeds-content">
     <sliding-list>
-    	<ul center-edges class="sliding-list">
-        <sliding-item state="main.app.feed.fashion">
+    	<ul center-edges class="sliding-list" >
+        <sliding-item state="main.app.feed.fashion" ng-show="filters.fashion">
           <a nav-transition="none" ui-sref="main.app.feed.fashion()">Fashion</a>
         </sliding-item>
-        <sliding-item state="main.app.feed.food">
+        <sliding-item state="main.app.feed.food" ng-show="filters.food">
           <a nav-transition="none" ui-sref="main.app.feed.food()">Food</a>
         </sliding-item>
-        <sliding-item state="main.app.feed.travel">
+        <sliding-item state="main.app.feed.travel" ng-show="filters.travel">
           <a nav-transition="none" ui-sref="main.app.feed.travel()">Travel</a>
         </sliding-item>
-        <sliding-item state="main.app.feed.deals">
-          <a nav-transition="none" ui-sref="main.app.feed.deals()">Deals</a>
+        <sliding-item state="main.app.feed.deals" ng-show="filters.vehicles">
+          <a nav-transition="none" ui-sref="main.app.feed.deals()">Vehicles</a>
         </sliding-item>
-        <sliding-item state="main.app.feed.real-state">
-          <a nav-transition="none" ui-sref="main.app.feed.real-state()">Real State</a>
+        <sliding-item state="main.app.feed.realstate" ng-show="filters.realstate">
+          <a nav-transition="none" ui-sref="main.app.feed.realstate()">RealState</a>
         </sliding-item>
     	</ul>
     </sliding-list>

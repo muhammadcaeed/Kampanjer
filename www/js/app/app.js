@@ -5,8 +5,9 @@ angular.module('underscore', [])
 
 angular.module('your_app_name', [
   'ionic',
-  'your_app_name.views',
+  //'your_app_name.views',
   'your_app_name.common.controllers',
+    'your_app_name.common.services',
   'your_app_name.common.directives',
 
   'your_app_name.account.controllers',
@@ -60,9 +61,11 @@ angular.module('your_app_name', [
   'underscore',
   'angularMoment',
   'ngMap',
-  'ngRangeSlider'
+  'ngRangeSlider',
+  'ngCookies',
+    'ngCordova',
+    'ngCordovaOauth'
 ])
-
 .run(function($ionicPlatform, amMoment, $rootScope) {
   $rootScope.previousView = [];
 
@@ -94,6 +97,23 @@ angular.module('your_app_name', [
     amMoment.changeLocale('en-gb');
   });
 })
+
+/*.run(function ($rootScope, $location, $cookieStore, $http) {
+    // keep user logged in after page refresh
+    $rootScope.globals = $cookieStore.get('globals') || {};
+    if ($rootScope.globals.currentUser) {
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+    }
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        // redirect to login page if not logged in and trying to access a restricted page
+        var restrictedPage = $.inArray($location.path(), ['/custom/login', '/custom/signup']) === -1;
+        var loggedIn = $rootScope.globals.currentUser;
+        if (restrictedPage && !loggedIn) {
+            $location.path('/custom/login');
+        }
+    });
+})*/
 
 .config(function($ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
@@ -145,12 +165,13 @@ angular.module('your_app_name', [
         }
       })
 
+
       .state('intro.auth-signup', {
         url: '/auth-signup',
         views: {
           'intro-view@intro': {
             templateUrl: 'views/auth/signup.html',
-            controller: 'SignupCtrl'
+            controller: 'SignupCtrl',
           }
         }
       })
@@ -343,7 +364,7 @@ angular.module('your_app_name', [
                     }
                   })
 
-              .state('main.app.feed.real-state', {
+              .state('main.app.feed.realstate', {
                 url: '/real-state',
                 views: {
                   'category-feed@main.app.feed': {
@@ -359,7 +380,7 @@ angular.module('your_app_name', [
                 }
               })
 
-                  .state('main.app.feed.real-state.content', {
+                  .state('main.app.feed.realstate.content', {
                     url: '/content/:productId',
                     views: {
                       'main-view@main': {
@@ -565,9 +586,73 @@ angular.module('your_app_name', [
                   }
                 }
               })
+
+
+  //CUSTOM WORK
+
+      .state('custom', {
+          url: '/custom',
+          abstract: true,
+          templateUrl: 'views/common/custom.html'
+      })
+
+
+          .state('custom.login', {
+              url: '/login',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/login.html',
+                      controller: 'CustomLoginCtrl',
+                      controllerAs: 'vm'
+                  }
+              }
+          })
+
+          .state('custom.signup', {
+              url: '/signup',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/signup.html',
+                      controller: 'CustomSignupCtrl',
+                      controllerAs: 'vm'
+                  }
+              }
+          })
+
+          .state('custom.forgot-password', {
+              url: '/forgot-password',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/forgot-password.html',
+                      controller: 'CustomForgotPasswordCtrl'
+                  }
+              }
+          })
+
+          .state('custom.filters', {
+              url: '/filters',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/learn.html',
+                      controller: 'CustomGettingStartedCtrl'
+                  }
+              }
+          })
+          .state('custom.map', {
+              url: '/map',
+              views: {
+                  'custom-view@custom': {
+                      templateUrl: 'views/custom/map.html',
+                      controller: 'CustomMapCtrl'
+                  }
+              }
+          })
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/intro/walkthrough-welcome');
+  $urlRouterProvider.otherwise('/custom/login');
   // $urlRouterProvider.otherwise('/main/app/feed/fashion');
-});
+
+
+
+})

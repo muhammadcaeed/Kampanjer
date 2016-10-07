@@ -1,6 +1,9 @@
 angular.module('your_app_name.feed.controllers', [])
 
-.controller('FeedCtrl', function($scope,  $ionicScrollDelegate, ShoppingCartService) {
+.controller('FeedCtrl', function($scope,  $ionicScrollDelegate, ShoppingCartService, sharedProperties) {
+
+	$scope.filters = sharedProperties.getProperty();
+	console.log($scope.filters.fashion);
 	$scope.getProductsInCart = function(){
 		return ShoppingCartService.getProducts().length;
 	};
