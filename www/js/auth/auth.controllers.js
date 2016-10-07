@@ -28,6 +28,11 @@ angular.module('your_app_name.auth.controllers', [])
 
 })
 
+
+	.controller('AfterLoginCtrl', function() {
+
+	})
+
 .controller('SignupCtrl', function($scope, $state, $ionicLoading, $timeout, $ionicModal) {
 	$scope.user = {};
 

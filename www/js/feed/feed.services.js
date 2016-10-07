@@ -68,7 +68,7 @@ angular.module('your_app_name.feed.services', [])
 .service('DealsService', function ($http, $q){
   this.getProducts = function(){
     var dfd = $q.defer();
-    $http.get('deals_db.json').success(function(database) {
+    $http.get('clothes_db.json').success(function(database) {
       dfd.resolve(database.products);
     });
     return dfd.promise;
@@ -76,7 +76,7 @@ angular.module('your_app_name.feed.services', [])
 
   this.getProduct = function(productId){
     var dfd = $q.defer();
-    $http.get('deals_db.json').success(function(database) {
+    $http.get('clothes_db.json').success(function(database) {
       var product = _.find(database.products, function(product){ return product.id == productId; });
       dfd.resolve(product);
     });

@@ -1,43 +1,43 @@
-<ion-view class="feed-food-view feed-sub-view" cache-view="false">
+<ion-view class="feed-deals-view feed-sub-view" cache-view="false">
   <ion-content>
     <section ng-include="'views/common/sort-and-filters-bar.html'"></section>
     <div class="products-row">
-      <div class="food-product-container" ng-repeat="product in results = products">
-        <div class="row info-row">
-          <div class="col logo-col">
-            <a class="product-anchor" ui-sref="custom.app.feed.food.content({productId: product.id})">
-              <pre-img ratio="_1_1">
-                <img class="logo-image" ng-src="{{ product.image }}" spinner-on-load>
-              </pre-img>
-            </a>
+
+      <div class="card deals-product-container" ng-repeat="product in results = products">
+        <div class="row row-center top-row">
+          <div class="col col-66 logo-col">
+            <!--<img class="deal-logo" ng-src="{{product.picture}}"/>-->
+            <p style="text-transform: uppercase; font-weight: bold;">{{product.name}}</p>
           </div>
-          <div class="col description-col">
-            <div class="row">
-              <div class="col data-col">
-                <h5 class="product-title">
-                  <a class="product-anchor" ui-sref="custom.app.feed.food.content({productId: product.id})">{{product.name}}</a>
-                </h5>
-                <p class="address-and-price-container">
-                  <span class="product-address">{{product.address}}</span>
-                  <span class="product-price-range" ng-repeat="price in [].constructor(product.price_range) track by $index">$</span>
-                </p>
-                <p class="product-tags-container">
-                  <span class="product-tag" ng-repeat="tag in product.tags">{{tag}}</span>
-                </p>
-              </div>
-              <div class="col col-20 actions-col">
-                <span class="product-rating rating-{{ product.rating | floor }}">{{product.rating}}</span>
-              </div>
-            </div>
+          <div class="col shop-col">
+            <button class="button shop-button" style="background-color: #ffab6b;">
+              CLAIM
+            </button>
+
           </div>
         </div>
-        <div class="row row-center images-row">
-          <div class="col col-20 image-wrapper" ng-repeat="picture in product.pictures.slice(0, 5) track by $index">
-            <pre-img ratio="_1_1">
-              <img class="product-image" ng-src="{{ picture }}" spinner-on-load>
-            </pre-img>
-            <div class="has-more-images" ng-if="$index == 4 && product.pictures.length > 5">
-              <span class="images-count">{{ product.pictures.length - 5 }}</span>
+        <div class="row middle-row">
+          <div class="col col-75">
+            <h5 class="product-title">
+              <a class="product-anchor">{{product.offer}}</a>
+              <!-- <a class="product-anchor" ui-sref="main.app.feed.deals.content({productId: product.id})">{{product.name}}</a> -->
+            </h5>
+            <p class="product-description ellipsis">
+              {{product.details}}
+            </p>
+          </div>
+          <div class="col bookmark-col">
+            <a class="button button-icon icon ion-pricetag bookmark-button" style="color: #ffab6b;"></a>
+          </div>
+        </div>
+        <div class="row bottom-row">
+          <div class="col col-75">
+            <span class="deal-code" style="color: #ffab6b; border-color: #ffab6b;">{{product.code}}</span>
+          </div>
+          <div class="col time-col">
+            <div class="time-left-container">
+              <span class="deal-time-left" ng-class="{'days-left-1': ((product.expiration_date | amDifference : null : 'hours') <= 10) && ((product.expiration_date | amDifference : null : 'hours') > 0), 'days-left-0': (product.expiration_date | amDifference : null : 'hours') < 0}" am-time-ago="product.expiration_date">-10</span>
+              <i class="icon ion-android-time"></i>
             </div>
           </div>
         </div>

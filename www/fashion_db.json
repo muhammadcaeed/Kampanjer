@@ -4,15 +4,20 @@
       "id": 7,
       "price": 200,
       "price_sale": 145,
-      "image": "./img/sample-images/fashion/Fashion7-3.4.png",
+      "image": "./img/sample-images/food/product-1.png",
       "square_image": "./img/sample-images/fashion/Fashion7-1.1.png",
       "showcase_images": [
-        "./img/sample-images/fashion_content/Fashion7_2-3.4.png",
-        "./img/sample-images/fashion_content/Fashion7_3-3.4.png",
-        "./img/kfc.png"
+        "./img/sample-images/food/product-1.png",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
       ],
       "name": "Badass Leather Jacket",
       "style": "Tight",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
+      "logo": "#",
       "related_products": [
         {
           "id": "2"
@@ -33,6 +38,11 @@
       ],
       "name": "Silk Blouse",
       "style": "Loose",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "3"
@@ -53,6 +63,11 @@
       ],
       "name": "Washed Skinny Jeans",
       "style": "Skinny",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "8"
@@ -73,6 +88,11 @@
       ],
       "name": "Feather Dark Shoes",
       "style": "Party",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "3"
@@ -93,6 +113,11 @@
       ],
       "name": "Dark Red Blouse",
       "style": "Loose",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "1"
@@ -114,6 +139,11 @@
       ],
       "name": "Cute Jean Shirt",
       "style": "Regular",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "5"
@@ -135,6 +165,11 @@
       ],
       "name": "Summer Yellow Dress",
       "style": "Regular",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "6"
@@ -155,6 +190,11 @@
       ],
       "name": "Army Green Shirt",
       "style": "Regular",
+      "details": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+      "validFor":"Dine-in/Takeaway",
+      "validOnly" :"Mon, Sat, Sun",
+      "validIn": "3h00 - 5h00 PM",
+      "validAt": "Gulshan & Clifton Branch",
       "related_products": [
         {
           "id": "2"

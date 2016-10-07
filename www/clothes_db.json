@@ -1,0 +1,85 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "code": "20LIGHT25",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/deals/clothes-1.jpg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+      ],
+      "name": "Fifth Avenue Clothing",
+      "offer": "Sale Upto 70% Off",
+      "validFor": "Men, Women, Kids",
+      "validOnly": "All Days",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "THE MOST OUTRAGEOUS DESIGN AND PATTERNS CONVEYED TO YOU, SHOP GARMENTS AND SHOES ONLINE AT FIFTH AVENUE CLOTHING.",
+      "logo": "./img/sample-images/deals/clothes-1-logo.png"
+    }, {
+      "id": 2,
+      "code": "20LIGHT25",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/deals/clothes-2.png",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+      ],
+      "name": "Outfitters",
+      "offer": "Festive Sale Upto 50% Off",
+      "validFor": "Men, Women, Kids",
+      "validOnly": "All Days",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "Upto 50% OFF ON ENTIRE STOCK! VISIT YOUR NEAREST STORE.",
+      "logo": "./img/sample-images/deals/clothes-2-logo.png"
+    }, {
+      "id": 3,
+      "code": "MORETVPLZ3",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/deals/clothes-3.png",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+      ],
+      "name": "Levi's",
+      "offer": "Summer Sale Upto 50% Off",
+      "validFor": "Men, Women, Kids",
+      "validOnly": "All Days",
+      "validIn": "5:00PM - 9:00PM",
+      "validAt": "All Branches",
+      "details": "Wallets out guys, their massive END OF SEASON SALE begins today! visit to your nearest Levi's store and avail up to 50% OFF on the Denim Wear out there!",
+      "logo": "./img/sample-images/deals/clothes-3-logo.svg"
+    }, {
+      "id": 4,
+      "code": "GETTHATPHONE212",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/deals/clothes-4.jpg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+      ],
+      "name": "Gul Ahmed",
+      "offer": "Sale Upto 50% Off",
+      "validFor": "Men, Women",
+      "validOnly": "Thu, Fri",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "A style for every age and a dress for every memory. A fusion of musculinity and clothing excellence",
+      "logo": "./img/sample-images/deals/clothes-4-logo.png"
+    }, {
+      "id": 5,
+      "code": "ALKARAMSTD2101",
+      "image": "",
+      "showcase_images": [
+        "./img/sample-images/deals/clothes-5.jpg",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+      ],
+      "name": "Alkaram Studio",
+      "offer": "Grand Sale Upto 50% Off",
+      "validFor": "Men, Women, Kids",
+      "validOnly": "Thu, Fri",
+      "validIn": "Full-Time",
+      "validAt": "All Branches",
+      "details": "Building on the strength of Alkaram Textiles, the concept was created for customers to experience the depth, range and creativity of the Alkaram product portfolio. From fashion fabrics and apparel for Men, Women and Kids, to Home Textiles and home-ware needs, alkaram studio offers a complete creative concept where customers can realize their dreams and aspirations.",
+      "logo": "./img/sample-images/deals/clothes-5-logo.png"
+    }
+  ]
+}

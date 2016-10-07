@@ -302,6 +302,23 @@ angular.module('your_app_name', [
                     }
                   })
 
+      //Food Content Reedem Button
+
+      .state('main.app.feed.food.content.reedem', {
+          url: '/reedem',
+          views: {
+              'main-view@main': {
+                  templateUrl: 'views/content/reedem.html',
+                  controller: 'FoodContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(FoodService, $stateParams){
+                  return FoodService.getProduct($stateParams.productId);
+              }
+          }
+      })
+
               .state('main.app.feed.travel', {
                 url: '/travel',
                 views: {
@@ -333,11 +350,11 @@ angular.module('your_app_name', [
                     }
                   })
 
-              .state('main.app.feed.deals', {
-                url: '/deals',
+              .state('main.app.feed.clothes', {
+                url: '/clothes',
                 views: {
                   'category-feed@main.app.feed': {
-                    templateUrl: 'views/feed/deals.html',
+                    templateUrl: 'views/feed/clothes.html',
                     controller: 'DealsCtrl'
                   }
                 },
@@ -349,11 +366,11 @@ angular.module('your_app_name', [
                 }
               })
 
-                  .state('main.app.feed.deals.content', {
+                  .state('main.app.feed.clothes.content', {
                     url: '/content/:productId',
                     views: {
                       'main-view@main': {
-                        templateUrl: 'views/content/deals.html',
+                        templateUrl: 'views/content/clothes.html',
                         controller: 'DealsContentCtrl'
                       }
                     },
@@ -364,7 +381,24 @@ angular.module('your_app_name', [
                     }
                   })
 
-              .state('main.app.feed.realstate', {
+      // Clothes Content Reedem Button
+
+      .state('main.app.feed.clothes.content.reedem', {
+          url: '/reedem',
+          views: {
+              'main-view@main': {
+                  templateUrl: 'views/content/reedem.html',
+                  controller: 'DealsContentCtrl'
+              }
+          },
+          resolve: {
+              product: function(DealsService, $stateParams){
+                  return DealsService.getProduct($stateParams.productId);
+              }
+          }
+      })
+
+              .state('main.app.feed.real-state', {
                 url: '/real-state',
                 views: {
                   'category-feed@main.app.feed': {
@@ -604,6 +638,7 @@ angular.module('your_app_name', [
                       templateUrl: 'views/custom/login.html',
                       controller: 'CustomLoginCtrl',
                       controllerAs: 'vm'
+
                   }
               }
           })

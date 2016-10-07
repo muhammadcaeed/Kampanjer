@@ -49,9 +49,10 @@ angular.module('your_app_name.content.controllers', [])
 			]
 		});
 	};
+
 })
 
-.controller('FoodContentCtrl', function($scope, $state, $rootScope, $ionicPopup, product) {
+.controller('FoodContentCtrl', function($scope, $state, $rootScope, $ionicPopup, product, $ionicLoading) {
 	$scope.goBack = function() {
 		var previous_view = _.last($rootScope.previousView);
 		$state.go(previous_view.fromState, previous_view.fromParams );
@@ -117,6 +118,7 @@ angular.module('your_app_name.content.controllers', [])
 		});
 	};
 
+
 	$scope.openAddresses = function(){
 		addressPopup = $ionicPopup.show({
 			cssClass: 'popup-outer food-addresses-view',
@@ -133,6 +135,13 @@ angular.module('your_app_name.content.controllers', [])
 		// If we want to access the map in the future
 		$scope.map = map;
 	});
+
+// REDEM AND BARCODE SCANNER WORK
+
+	$scope.reedemNow = function(product) {
+		$state.go('main.app.feed.food.content.reedem');
+	}
+
 })
 
 .controller('TravelContentCtrl', function($scope, $state, $rootScope, product) {
@@ -142,6 +151,7 @@ angular.module('your_app_name.content.controllers', [])
   };
 
 	$scope.product = product;
+
 })
 
 .controller('DealsContentCtrl', function($scope, $state, $rootScope, product) {
@@ -151,6 +161,12 @@ angular.module('your_app_name.content.controllers', [])
 	};
 
 	$scope.product = product;
+
+
+//REDEEM AND BARCODE SCANNER WORK
+	$scope.reedemNow = function(product) {
+		$state.go('main.app.feed.clothes.content.reedem');
+	}
 })
 
 .controller('RealStateContentCtrl', function($scope, $state, $rootScope, product) {
@@ -161,8 +177,5 @@ angular.module('your_app_name.content.controllers', [])
 
 	$scope.product = product;
 })
-
-
-
 
 ;
