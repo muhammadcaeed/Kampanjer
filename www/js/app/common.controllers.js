@@ -5,24 +5,28 @@ angular.module('your_app_name.common.controllers', [])
 })
 
 
-.controller('CustomMapCtrl', function(NgMap, $scope, GeoCoder) {
+.controller('CustomMapCtrl', function($scope, $state, $rootScope, NgMap,  GeoCoder) {
+    $scope.goBack = function() {
+        var previous_view = _.last($rootScope.previousView);
+        $state.go(previous_view.fromState, previous_view.fromParams );
+    };
 
     /*$scope.geoFunc = function() {
      GeoCoder.geocode({address: 'KFC, Dolmen Mall, Tariq Road'}).then(function(result) {
      console.log('all good');
      });
      }*/
-    $scope.lat = "";
-    $scope.lng = "";
-    $scope.geoFunc = function() {
-        GeoCoder.geocode({address: '249 Staff Lines, Ghazanfar Ali Rd, Saddar, Near Avari Towers, Karachi'}).then(function(result) {
-            //... do something with result
-            lat = result[0].geometry.location.lat();
-            lng = result[0].geometry.location.lng();
-            console.log('latitude : ' + lat);
-            console.log('longtitude : ' + lng);
-        });
-    }
+    // $scope.lat = "";
+    // $scope.lng = "";
+    // $scope.geoFunc = function() {
+    //     GeoCoder.geocode({address: '249 Staff Lines, Ghazanfar Ali Rd, Saddar, Near Avari Towers, Karachi'}).then(function(result) {
+    //         //... do something with result
+    //         lat = result[0].geometry.location.lat();
+    //         lng = result[0].geometry.location.lng();
+    //         console.log('latitude : ' + lat);
+    //         console.log('longtitude : ' + lng);
+    //     });
+    // }
 
     NgMap.getMap().then(function(map) {
         console.log(map.getCenter());

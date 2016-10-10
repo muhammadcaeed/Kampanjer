@@ -1,19 +1,50 @@
-<ion-view title="Map">
+<!--<ion-view title="Map">-->
 
-    <ion-header-bar class="bar bar-balanced">
-        Maps
+    <!--<ion-header-bar class="bar bar-balanced">-->
+        <!--Maps-->
+    <!--</ion-header-bar>-->
+    <!--<ion-content>-->
+
+    <!--<map style="height:100%;" center="[24.8547124, 67.0300019]">-->
+        <!--<marker position="[24.8547124, 67.0300019]" ></marker>-->
+        <!--<marker position="[24.85241639, 67.03233004]" ></marker>-->
+        <!--<marker position="[24.85765385, 67.03107476]" ></marker>-->
+        <!--<marker position="[24.8561206, 67.02885926]" ></marker>-->
+        <!--<marker position="[24.85419793, 67.02420831]" ></marker>-->
+    <!--</map>-->
+
+   <!--&lt;!&ndash;     <map center="[40.74, -74.18]">-->
+            <!--<marker position="[40.74, -74.18]" on-click="myfunc()"></marker>-->
+        <!--</map>-->
+        <!--<map center="the cn tower">-->
+            <!--<marker position="the cn tower" on-click="myfunc()"></marker>-->
+        <!--</map>&ndash;&gt;-->
+    <!--</ion-content>-->
+<!--</ion-view>-->
+
+
+<ion-view cache-view="false">
+    <ion-header-bar style="background-color: #ffe6dc;">
+        <div class="buttons">
+            <button class="button button-clear back-button" style="color: #4e2e1b;" ng-click="goBack()">Back</button>
+        </div>
+        <h1 class="title" style="color: #4e2e1b;">Map</h1>
     </ion-header-bar>
     <ion-content>
 
-    <map center="249 Staff Lines, Ghazanfar Ali Rd, Saddar, Near Avari Towers, Karachi">
-        <marker position="[lat, lng]" geo-callback="geoFunc()"  on-click="myfunc()"></marker>
-    </map>
-        <p>lat : {{lat}}</p>
-   <!--     <map center="[40.74, -74.18]">
-            <marker position="[40.74, -74.18]" on-click="myfunc()"></marker>
+        <map style="height:100%;" center="[24.8547124, 67.0300019]">
+            <marker position="[24.8547124, 67.0300019]" ></marker>
+            <marker position="[24.85241639, 67.03233004]" ></marker>
+            <marker position="[24.85765385, 67.03107476]" ></marker>
+            <marker position="[24.8561206, 67.02885926]" ></marker>
+            <marker position="[24.85419793, 67.02420831]" ></marker>
         </map>
-        <map center="the cn tower">
-            <marker position="the cn tower" on-click="myfunc()"></marker>
-        </map>-->
+
+        <!--     <map center="[40.74, -74.18]">
+                 <marker position="[40.74, -74.18]" on-click="myfunc()"></marker>
+             </map>
+             <map center="the cn tower">
+                 <marker position="the cn tower" on-click="myfunc()"></marker>
+             </map>-->
     </ion-content>
 </ion-view>
